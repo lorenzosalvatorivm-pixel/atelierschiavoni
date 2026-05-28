@@ -8,6 +8,7 @@
   --color-stone-800: #2c2a26;
   --color-stone-900: #1a1917;
   --color-accent: #8b7355;
+  --color-crimson: #8b1a1a;
   --font-serif: var(--font-cormorant);
   --font-sans: var(--font-dm-sans);
 }
@@ -25,4 +26,46 @@ body {
 ::selection {
   background-color: var(--color-stone-200);
   color: var(--color-stone-900);
+}
+
+/* Badge / tag component */
+.badge {
+  display: inline-block;
+  border: 1px solid currentColor;
+  padding: 0.25rem 0.75rem;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Smooth image hover */
+.img-hover {
+  overflow: hidden;
+}
+.img-hover img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.img-hover:hover img {
+  transform: scale(1.04);
+}
+
+/* Underline link */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+.link-underline:hover::after {
+  width: 100%;
 }

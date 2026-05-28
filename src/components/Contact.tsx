@@ -1,48 +1,144 @@
-import { contact } from "@/lib/data";
+"use client";
+
+import Link from "next/link";
 
 export function Contact() {
   return (
-    <section id="contatti" className="border-t border-stone-200 bg-stone-900 py-24 text-stone-100 lg:py-32">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="grid gap-16 lg:grid-cols-2">
+    <section
+      style={{
+        backgroundColor: "#faf9f7",
+        borderTop: "1px solid #e8e4dd",
+        padding: "5rem 2.5rem 6rem",
+        textAlign: "center",
+      }}
+    >
+      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+        {/* Large display CTA */}
+        <Link
+          href="/progetti"
+          style={{
+            display: "block",
+            fontFamily: "var(--font-cormorant)",
+            fontSize: "clamp(3rem, 10vw, 8rem)",
+            fontWeight: 700,
+            color: "#1a1917",
+            textDecoration: "none",
+            textTransform: "uppercase",
+            letterSpacing: "0.02em",
+            lineHeight: 1,
+            transition: "color 0.3s ease",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "#8b1a1a")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "#1a1917")}
+        >
+          Guarda i Progetti
+        </Link>
+
+        {/* Divider */}
+        <div
+          style={{
+            width: "1px",
+            height: "5rem",
+            backgroundColor: "#d4cec3",
+            margin: "4rem auto 4rem",
+          }}
+        />
+
+        {/* Contact info grid */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: "2rem",
+            maxWidth: "800px",
+            margin: "0 auto",
+          }}
+        >
+          {/* Address */}
           <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-stone-100/40">Contatti</p>
-            <h2 className="mt-4 font-serif text-3xl text-stone-50 lg:text-4xl">
-              Parliamo del tuo progetto
-            </h2>
-            <p className="mt-6 max-w-md text-sm leading-relaxed text-stone-100/60">
-              Raccontaci la tua idea: ti risponderemo entro due giorni lavorativi per fissare un
-              primo incontro in studio o in videoconferenza.
+            <p
+              style={{
+                fontFamily: "var(--font-dm-sans)",
+                fontSize: "0.62rem",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: "#8b7355",
+                marginBottom: "0.75rem",
+                fontWeight: 500,
+              }}
+            >
+              Sede
+            </p>
+            <p
+              style={{
+                fontFamily: "var(--font-dm-sans)",
+                fontSize: "0.8rem",
+                color: "#2c2a26",
+                lineHeight: 1.7,
+                margin: 0,
+              }}
+            >
+              Via Giovanni Falcone n. 89<br />
+              62100 Macerata (MC), Italia
             </p>
           </div>
 
-          <div className="space-y-8">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-stone-100/40">Email</p>
-              <a
-                href={`mailto:${contact.email}`}
-                className="mt-2 block font-serif text-xl text-stone-50 transition-colors hover:text-accent"
-              >
-                {contact.email}
-              </a>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-stone-100/40">Telefono</p>
-              <a
-                href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                className="mt-2 block font-serif text-xl text-stone-50 transition-colors hover:text-accent"
-              >
-                {contact.phone}
-              </a>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-stone-100/40">Indirizzo</p>
-              <p className="mt-2 font-serif text-xl text-stone-50">{contact.address}</p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-stone-100/40">Orari</p>
-              <p className="mt-2 text-sm text-stone-100/60">{contact.hours}</p>
-            </div>
+          {/* Email */}
+          <div>
+            <p
+              style={{
+                fontFamily: "var(--font-dm-sans)",
+                fontSize: "0.62rem",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: "#8b7355",
+                marginBottom: "0.75rem",
+                fontWeight: 500,
+              }}
+            >
+              Email
+            </p>
+            <a
+              href="mailto:info@ateliermicheleschiavoniarchitetti.it"
+              className="link-underline"
+              style={{
+                fontFamily: "var(--font-dm-sans)",
+                fontSize: "0.8rem",
+                color: "#2c2a26",
+                textDecoration: "none",
+              }}
+            >
+              info@atelier<br />micheleschiavoni<br />architetti.it
+            </a>
+          </div>
+
+          {/* Phone */}
+          <div>
+            <p
+              style={{
+                fontFamily: "var(--font-dm-sans)",
+                fontSize: "0.62rem",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: "#8b7355",
+                marginBottom: "0.75rem",
+                fontWeight: 500,
+              }}
+            >
+              Telefono
+            </p>
+            <a
+              href="tel:+390733403434"
+              className="link-underline"
+              style={{
+                fontFamily: "var(--font-dm-sans)",
+                fontSize: "0.8rem",
+                color: "#2c2a26",
+                textDecoration: "none",
+              }}
+            >
+              +39 0733 403434
+            </a>
           </div>
         </div>
       </div>

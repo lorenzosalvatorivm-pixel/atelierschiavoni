@@ -7,14 +7,14 @@ import "./globals.css";
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-cormorant",
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
-  weight: ["400", "500"],
+  weight: ["300", "400", "500", "700"],
   display: "swap",
 });
 
@@ -32,6 +32,7 @@ export const metadata: Metadata = {
     "progettazione",
     "restauro",
     "interior design",
+    "Macerata",
   ],
   openGraph: {
     title: "Atelier Michele Schiavoni Architetti",

@@ -1,44 +1,86 @@
-import { studio } from "@/lib/data";
+import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-end pb-20 pt-32 lg:pb-28 lg:pt-40">
+    <section
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100svh",
+        minHeight: "600px",
+        backgroundColor: "#1a1917",
+        overflow: "hidden",
+      }}
+    >
+      {/* Hero image - replace /images/hero.jpg with your actual image */}
+      <video
+  autoPlay
+  muted
+  loop
+  playsInline
+  style={{
+    position: "absolute",
+    inset: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  }}
+>
+  <source
+    src="https://www.ateliermicheleschiavoniarchitetti.it/wp-content/uploads/2025/11/atelier_michele_schiavoni_architetti.mp4_video_home-1080p.mp4"
+    type="video/mp4"
+  />
+  Your browser does not support the video tag.
+</video>
+      
+        
+
+      {/* Subtle bottom gradient for readability */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-stone-200/40 via-stone-100/20 to-stone-50"
-        aria-hidden
-      />
-      <div
-        className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a1917' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(to bottom, rgba(26,25,23,0.15) 0%, rgba(26,25,23,0) 40%, rgba(26,25,23,0.4) 100%)",
+          pointerEvents: "none",
         }}
-        aria-hidden
       />
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 lg:px-8">
-        <p className="mb-6 text-xs uppercase tracking-[0.35em] text-stone-800/50">
-          Dal {studio.founded}
+      {/* Optional minimal bottom caption */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "2.5rem",
+          left: "2.5rem",
+          right: "2.5rem",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-end",
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "var(--font-dm-sans)",
+            fontSize: "0.65rem",
+            letterSpacing: "0.15em",
+            color: "rgba(250,249,247,0.55)",
+            textTransform: "uppercase",
+            margin: 0,
+          }}
+        >
+          Macerata — Italia
         </p>
-        <h1 className="max-w-4xl font-serif text-4xl leading-[1.1] text-stone-900 sm:text-5xl lg:text-7xl">
-          {studio.tagline}
-        </h1>
-        <p className="mt-8 max-w-xl text-base leading-relaxed text-stone-800/70 lg:text-lg">
-          {studio.description}
+        <p
+          style={{
+            fontFamily: "var(--font-cormorant)",
+            fontSize: "0.9rem",
+            color: "rgba(250,249,247,0.55)",
+            fontStyle: "italic",
+            margin: 0,
+          }}
+        >
+          Architettura che dialoga con il luogo
         </p>
-        <div className="mt-12 flex flex-wrap gap-4">
-          <a
-            href="#progetti"
-            className="inline-flex items-center border border-stone-900 bg-stone-900 px-8 py-3 text-xs uppercase tracking-[0.2em] text-stone-50 transition-colors hover:bg-transparent hover:text-stone-900"
-          >
-            I nostri progetti
-          </a>
-          <a
-            href="#contatti"
-            className="inline-flex items-center border border-stone-300 px-8 py-3 text-xs uppercase tracking-[0.2em] text-stone-800 transition-colors hover:border-stone-900"
-          >
-            Contattaci
-          </a>
-        </div>
       </div>
     </section>
   );

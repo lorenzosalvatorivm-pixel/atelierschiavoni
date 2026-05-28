@@ -1,40 +1,127 @@
-import { studio } from "@/lib/data";
+import Image from "next/image";
+import Link from "next/link";
 
 export function About() {
   return (
-    <section id="studio" className="border-t border-stone-200 py-24 lg:py-32">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
-          <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-stone-800/50">Lo studio</p>
-            <h2 className="mt-4 font-serif text-3xl text-stone-900 lg:text-4xl">
-              Progettare con rigore e sensibilità
-            </h2>
+    <>
+      {/* ─── Intro paragraph ──────────────────────────────────────── */}
+      <section
+        style={{
+          backgroundColor: "#faf9f7",
+          padding: "6rem 2.5rem",
+        }}
+      >
+        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+          <p
+            style={{
+              fontFamily: "var(--font-sans), system-ui, sans-serif",
+              fontSize: "clamp(1rem, 1.5vw, 1.15rem)",
+              fontWeight: 400,
+              lineHeight: 1.85,
+              color: "#1a1917",
+              margin: 0,
+            }}
+          >
+            L&apos;atelier{" "}
+            <strong style={{ fontWeight: 500 }}>
+              &quot; Michele Schiavoni architetti &quot;
+            </strong>{" "}
+            inizia a muovere i primi passi nel 2013, quando il suo fondatore,
+            Michele Schiavoni lascia Roma per tornare a Macerata, con la
+            convinzione che la provincia sia fonte di maggiori opportunità e con
+            lo scopo di riqualificare gli ambienti urbani, migliorando gli spazi
+            dell&apos;abitare. Questo al fine di incentivare buone pratiche per
+            il ripopolamento delle &quot;aree interne&quot;.
+          </p>
+        </div>
+      </section>
+
+      {/* ─── L'Atelier section ────────────────────────────────────── */}
+      <section
+        style={{
+          backgroundColor: "#faf9f7",
+          padding: "0 2.5rem 7rem",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+          }}
+        >
+          {/* Badge */}
+          <div style={{ marginBottom: "2.5rem" }}>
+            <span className="badge" style={{ color: "#1a1917" }}>
+              L&apos;Atelier
+            </span>
           </div>
-          <div className="space-y-6 text-base leading-relaxed text-stone-800/70">
-            <p>
-              <strong className="font-medium text-stone-900">{studio.name}</strong> opera
-              nell&apos;ambito dell&apos;architettura contemporanea, unendo ricerca formale e
-              sostenibilità. Il team coordina ogni fase — dalla concept alla realizzazione —
-              garantendo coerenza tra idea progettuale e cantiere.
-            </p>
-            <p>
-              Collaboriamo con artigiani, ingegneri e paesaggisti per costruire spazi duraturi,
-              capaci di invecchiare con eleganza e di valorizzare il patrimonio esistente.
-            </p>
-            <dl className="grid grid-cols-2 gap-8 border-t border-stone-200 pt-8">
-              <div>
-                <dt className="text-xs uppercase tracking-[0.2em] text-stone-800/50">Fondazione</dt>
-                <dd className="mt-2 font-serif text-2xl text-stone-900">{studio.founded}</dd>
+
+          {/* Two column: text left, image right */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "5rem",
+              alignItems: "center",
+            }}
+          >
+            {/* Text */}
+            <div>
+              <p
+                style={{
+                  fontFamily: "var(--font-sans), system-ui, sans-serif",
+                  fontSize: "0.9rem",
+                  lineHeight: 1.9,
+                  color: "#2c2a26",
+                  margin: 0,
+                }}
+              >
+                L&apos;atelier vede l&apos;architettura come un&apos;arte
+                sociale, che agisce come strumento di miglioramento collettivo.
+                L&apos;obiettivo è creare spazi che migliorino la qualità della
+                vita e favoriscano l&apos;inclusione sociale, in chiave
+                contemporanea, grazie ad un team dinamico che si scambia
+                continuamente dati, notizie ed informazioni.
+              </p>
+              <div style={{ marginTop: "2.5rem" }}>
+                <Link
+                  href="/chi-siamo"
+                  className="link-underline"
+                  style={{
+                    fontFamily: "var(--font-dm-sans)",
+                    fontSize: "0.72rem",
+                    letterSpacing: "0.15em",
+                    textTransform: "uppercase",
+                    color: "#8b7355",
+                    textDecoration: "none",
+                    fontWeight: 500,
+                  }}
+                >
+                  Scopri di più →
+                </Link>
               </div>
-              <div>
-                <dt className="text-xs uppercase tracking-[0.2em] text-stone-800/50">Sede</dt>
-                <dd className="mt-2 font-serif text-2xl text-stone-900">{studio.location}</dd>
-              </div>
-            </dl>
+            </div>
+
+            {/* Image */}
+            <div
+              className="img-hover"
+              style={{
+                position: "relative",
+                aspectRatio: "4/3",
+                backgroundColor: "#e8e4dd",
+              }}
+            >
+              {/* Replace /images/atelier.jpg with your actual image */}
+              <Image
+                src="/studio.jpg"
+                alt="Atelier Michele Schiavoni — interno studio"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
